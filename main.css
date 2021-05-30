@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: hsl(223, 100%, 56%);
+  --bg: hsl(225, 11%, 15%);
+  --input-focus: hsl(219, 18%, 19%);
+  --card: hsl(221, 14%, 23%);
+  --el-hover: hsl(218, 12%, 19%);
+  --border: hsl(223, 11%, 31%);
+  --text-label: hsl(222, 19%, 73%);
+  --text-main: hsl(210, 5%, 92%);
+  --shadow-1: rgba(0, 0, 0, 0.1);
+  --shadow-2: rgba(0, 0, 0, 0.2);
+  --shadow-inset: rgba(255, 255, 255, 0.5);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5em;
+}
+
+.form-group {
+  display: inline-block;
+  color: var(--text-label);
+}
+.form-group label {
+  display: block;
+  margin-left: 5px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.cs-container {
+  display: inline-block;
+  position: relative;
+  outline: none;
+}
+.cs-container:focus > .cs-value {
+  border: 1px solid var(--primary);
+  background: var(--input-focus);
+  color: var(--text-main);
+  box-shadow: 1px 1px 2px 0 var(--primary), -1px -1px 2px 0 var(--primary);
+}
+.cs-container:focus > .cs-value::after {
+  transform: rotate(180deg) translateY(50%);
+}
+
+.cs-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 225px;
+  padding: 0.65rem 1.2rem;
+  border-radius: 10px;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  border: 1px solid var(--border);
+  user-select: none;
+  cursor: pointer;
+}
+.cs-value::after {
+  content: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='hsl(222, 19%, 73%)'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3e%3c/svg%3e");
+  position: absolute;
+  stroke: var(--text-main);
+  width: 18px;
+  height: 18px;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.25s cubic-bezier(1, 0, 0.06, 1.01);
+  margin-inline-start: 14px;
+}
+
+.cs-options {
+  display: none;
+  position: absolute;
+  padding: 8px;
+  margin: 0;
+  margin-block-start: 9px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 15px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1), inset 0 0 0 1px var(--shadow-inset);
+  list-style: none;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.cs-options::-webkit-scrollbar {
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+.cs-options.show {
+  display: block;
+}
+
+.cs-option {
+  padding: 0.6rem 0.5rem;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 120%;
+  border-radius: 6px;
+}
+.cs-option.selected {
+  background: var(--el-hover);
+}
+.cs-option:hover {
+  background: var(--border);
+}
+
+/*# sourceMappingURL=main.css.map */
